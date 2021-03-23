@@ -1,0 +1,21 @@
+.main {
+
+}
+
+body, html {
+  background-image: url(https://homepictures.s3-us-west-1.amazonaws.com/windowsill.jpeg);
+  height: 100%;
+  margin: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -100;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 10% 30% 19% 30% 7.5% 10%;
+  grid-template-rows: 10% 25.5% 25% 4% 4% 30% 20%;
+  height: 100vh;
+}
+
