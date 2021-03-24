@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './styles/toDoList.css';
 
-const ToDoList = (props) => {
+const ToDoList = ({click,todo,text}) => {
   return (
     <div className = {styles.toDoContainer}>
       <div>TO DO LIST:</div>
-      {props.todo.map((item,i) =>
-      <li>{item} <button>done</button></li>
+      {todo.map((item,i) =>
+      <li className = {text}>{item} <button onClick = {click}>done</button></li>
       )}
 
     </div>

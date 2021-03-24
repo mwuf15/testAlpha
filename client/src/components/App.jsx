@@ -11,9 +11,11 @@ class App extends Component {
       this.state = {
         count: 0,
         clicked: false,
-        toDo: ['study','cook','walk outside',]
+        toDo: ['study','cook','walk outside'],
+        done: false,
       };
 this.handleClick = this.handleClick.bind(this)
+this.ListClick = this.ListClick.bind(this)
 
 }
 handleClick () {
@@ -24,13 +26,20 @@ handleClick () {
     this.setState({clicked: false, count: this.state.count - 1})
   }
     }
+
+ListClick () {
+  // this.state.done ? this.setState({done:false}) : this.setState({done:true})
+  // this.setState({done: true})
+  console.log('clicked')
+};
   render() {
+    let text = this.state.done ? styles.strikeThrough: styles.normal;
     return (
       <div className = {styles.main}>
         <div className = {styles.gridContainer}>
           <Count count = {this.state.count}/>
           <View click = {this.handleClick}/>
-          <ToDoList todo = {this.state.toDo}/>
+          <ToDoList todo = {this.state.toDo} click = {this.ListClick} text = {text}/>
           <ToDoForm/>
         </div>
       </div>
