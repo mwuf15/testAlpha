@@ -1,0 +1,12 @@
+.likeButton {
+  width: 80%;
+  height: 100%
+
+}
+
+.viewContainer {
+  grid-column: 4 /span 1;
+  grid-row: 4 /span 1;
+  align-self: center;
+  /* justify-self: center; */
+}
