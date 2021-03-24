@@ -3,7 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 3018;
+const PORT = 3012;
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
