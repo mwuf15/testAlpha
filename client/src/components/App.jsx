@@ -6,20 +6,14 @@ import ToDoList from './ToDoList.jsx';
 import styles from './styles/app.css';
 
 class App extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
+
+      state = {
         count: 0,
         clicked: false,
         toDo: [],
         done: false,
-      };
-this.handleClick = this.handleClick.bind(this);
-this.ListClick = this.ListClick.bind(this);
-this.addToDo = this.addToDo.bind(this);
-this.completeTodo = this.completeTodo.bind(this);
 }
-handleClick () {
+handleClick = () => {
   console.log('clicked')
   if (this.state.clicked === false) {
     this.setState({clicked: true, count: this.state.count + 1})
@@ -28,16 +22,16 @@ handleClick () {
   }
 }
 
-ListClick (id) {
+ListClick = (id) => {
   let newtask = (this.state.toDo).filter(todo => todo.id !== id);
   this.setState({toDo: newtask});
 }
 
-addToDo (task) {
+addToDo = (task) => {
 this.setState({toDo:this.state.toDo.concat(task)});
 }
 
-completeTodo (id) {
+completeTodo = (id) => {
   let result = [];
   let completedTask = (this.state.toDo).forEach(todo => {
     if (todo.id === id) {

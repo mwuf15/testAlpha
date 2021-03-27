@@ -1,24 +1,19 @@
 import React from 'react';
-import styles from './styles/toDoList.css';
+import styles from './styles/todolist.css';
 
 class ToDoForm extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
+    state = {
       completed: false,
       toDo: '',
       id: ''
     }
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
 
-  handleChange (e) {
+  handleChange = (e) => {
     let ranID = Math.floor(Math.random()* 10000)
     this.setState({toDo: e.target.value, id:ranID});
   }
 
-  handleSubmit (e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.addTask(this.state);
     e.target.inputTask.value ='';

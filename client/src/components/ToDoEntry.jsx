@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles/toDoList.css';
+import styles from './styles/todolist.css';
 
 const ToDoEntry = ({todoTask,click, complete}) => {
 let toDoClass = todoTask.completed? styles.strikeThrough : styles.list;
