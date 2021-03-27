@@ -16,5 +16,21 @@
 }
 
 .strikeThrough {
+  margin-right: 100px;
   text-decoration: line-through;
+}
+
+.list {
+margin-right: 100px;
+}
+.button {
+
+}
+
+.toDoEntry {
+display: flex;
+width: 120%;
+justify-content: space-between;
+border: darkgray;
+border-radius: 10px;
 }

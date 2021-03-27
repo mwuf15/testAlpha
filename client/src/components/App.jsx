@@ -11,12 +11,13 @@ class App extends Component {
       this.state = {
         count: 0,
         clicked: false,
-        toDo: ['study','cook','walk outside'],
+        toDo: [],
         done: false,
       };
-this.handleClick = this.handleClick.bind(this)
-this.ListClick = this.ListClick.bind(this)
-
+this.handleClick = this.handleClick.bind(this);
+this.ListClick = this.ListClick.bind(this);
+this.addToDo = this.addToDo.bind(this);
+this.completeTodo = this.completeTodo.bind(this);
 }
 handleClick () {
   console.log('clicked')
@@ -25,13 +26,32 @@ handleClick () {
   } else {
     this.setState({clicked: false, count: this.state.count - 1})
   }
-    }
+}
 
-ListClick () {
-  // this.state.done ? this.setState({done:false}) : this.setState({done:true})
-  // this.setState({done: true})
-  console.log('clicked')
-};
+ListClick (id) {
+  let newtask = (this.state.toDo).filter(todo => todo.id !== id);
+  this.setState({toDo: newtask});
+}
+
+addToDo (task) {
+this.setState({toDo:this.state.toDo.concat(task)});
+}
+
+completeTodo (id) {
+  let result = [];
+  let completedTask = (this.state.toDo).forEach(todo => {
+    if (todo.id === id) {
+      todo.completed? todo.completed = false : todo.completed = true;
+      result.push(todo)
+    } else {
+      result.push(todo)
+    }
+    return result
+  }
+    );
+  this.setState({toDo: result});
+}
+
   render() {
     let text = this.state.done ? styles.strikeThrough: styles.normal;
     return (
@@ -39,8 +59,8 @@ ListClick () {
         <div className = {styles.gridContainer}>
           <Count count = {this.state.count}/>
           <View click = {this.handleClick}/>
-          <ToDoList todo = {this.state.toDo} click = {this.ListClick} text = {text}/>
-          <ToDoForm/>
+          <ToDoList todo = {this.state.toDo} click = {this.ListClick} complete = {this.completeTodo}/>
+          <ToDoForm addTask = {this.addToDo}/>
         </div>
       </div>
     );
