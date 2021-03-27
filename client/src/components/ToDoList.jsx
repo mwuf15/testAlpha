@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles/toDoList.css';
+import styles from './styles/todolist.css';
 import ToDoEntry from './ToDoEntry.jsx'
 
 const ToDoList = ({click,todo, complete}) => {
